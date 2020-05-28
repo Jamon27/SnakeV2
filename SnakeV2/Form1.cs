@@ -16,17 +16,24 @@ namespace SnakeV2
         Point[] p;
         int len;
         int direction;// 1 left, 2 right, 3 top, 4 bottom
+        enum Direction
+        {
+            Left,
+            Right
+        }
+
         public Form1()
         {
             InitializeComponent();
             len = 5;
             direction = 4;
             p = new Point[200];
-            for (int i = 0; i < 5; i++)
-            { 
-                p[i].X = 100;
-                p[i].Y = 100*i*10;
-            }
+            //            for (int i = 0; i < 5; i++)
+            //           { 
+            //               p[i].X = 100;
+            //               p[i].Y = 100*i*10;
+            //          }
+            panel2.Invalidate();
         }
 
         private void startGame_Click(object sender, EventArgs e)
@@ -70,6 +77,7 @@ namespace SnakeV2
         private void timer1_Tick(object sender, EventArgs e)
         {
             panel1.Invalidate();
+            
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -90,6 +98,20 @@ namespace SnakeV2
             {
                 direction = 4;
             }
+        }
+        //SnakeClass testAnimal = new SnakeClass(10, 5, 100);
+        
+        private void drawBorders()
+        {
+            SolidBrush b = new SolidBrush(Color.Black);
+            
+ 
+        }
+
+        private void drawBorders(object sender, PaintEventArgs e)
+        {
+            Pen blackPen = new Pen(Color.Brown, 10 );
+            e.Graphics.DrawRectangle(blackPen, 0, 0, 500, 500);
         }
     }
 }
